@@ -18,6 +18,7 @@ function agregarTarea(){
             completado: false
         };
         tareas.push(tarea);
+        alert("Tarea agregada con exito");
     }else{
         alert("El nombre de la tarea no puede estar vacio");
     }
@@ -29,11 +30,19 @@ function verTarea(){
     }else{
         let mensaje = "Lista de tareas: \n";
         tareas.forEach((tarea,index)=>{
-
+            mensaje+=`${index+1}.- ${tarea.nombre} [${tarea.completado?"Completada":"Pendiente"}]\n`;
         });
-        {
+        alert(mensaje);
+    }
+}
 
-        };
+function marcarTareaCompletada(){
+    let numero = parseInt(prompt("Introduce el numero de la tarea completada"));
+    if(numero > 0 && numero <= tareas.length){
+        tareas[numero-1].completado=true;
+        alert(`La tarea ${tareas[numero-1].nombre} ha sido completada`);
+    }else{
+        alert("Numero de tarea no valido (Fuera de rango...)");
     }
 }
 
