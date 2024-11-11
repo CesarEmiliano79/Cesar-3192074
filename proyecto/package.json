@@ -1,0 +1,21 @@
+{
+  "name": "proyecto",
+  "version": "1.0.0",
+  "description": "proyecto_de_programacion_web_2",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "proyecto",
+    "node",
+    "express",
+    "mysql"
+  ],
+  "author": "Rojas_Perez_Cesar_Emiliano",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "mysql2": "^3.11.4"
+  }
+}
