@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller de Llaveros - Pedidos</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Lista de Pedidos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>ID Pedido</th>
+                <th>Código</th>
+                <th>Modelo</th>
+                <th>Precio Total</th>
+                <th>¿Completado?</th>
+                <th>Cliente</th>
+                <th>Fecha Entrega</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% datos.forEach(datos => { %>
+            <tr>
+                <td><%= datos.id %></td>
+                <td><%= datos.idPedido %></td>
+                <td><%= datos.codigo %></td>
+                <td><%= datos.modelo %></td>
+                <td>$<%= datos.precioT %></td>
+                <td><%= datos.completo ? 'Sí' : 'No' %></td>
+                <td><%= datos.cliente %></td>
+                <td><%= new Date(datos.fechaEntrega).toLocaleDateString('es-ES') %></td>
+                <td>
+                    <a href="/find/<%= datos.id %>">Editar</a> |
+                    <a href="/delete/<%= datos.id %>" onclick="return confirm('¿Estás seguro de eliminar este pedido?')">Eliminar</a>
+                </td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <h2>Agregar Nuevo Pedido</h2>
+    <form action="/add" method="POST">
+        <label for="idPedido">ID Pedido</label>
+        <input type="text" id="idPedido" name="idPedido" required>
+
+        <label for="codigo">Código:</label>
+        <input type="text" id="codigo" name="codigo" required>
+        
+        <label for="modelo">Modelo:</label>
+        <input type="text" id="modelo" name="modelo" required>
+        
+        <label for="precioT">Precio Total:</label>
+        <input type="number" step="0.01" id="precioT" name="precioT" required>
+        
+        <label for="completo">¿Completado?</label>
+        <select id="completo" name="completo" required>
+            <option value="0">No</option>
+            <option value="1">Sí</option>
+        </select>
+        
+        <label for="cliente">Cliente:</label>
+        <input type="text" id="cliente" name="cliente" required>
+        
+        <label for="fechaEntrega">Fecha Entrega:</label>
+        <input type="date" id="fechaEntrega" name="fechaEntrega">
+        
+        <button type="submit">Agregar Pedido</button>
+    </form>
+</body>
+</html>

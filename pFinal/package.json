@@ -1,7 +1,7 @@
 {
-  "name": "proyecto",
+  "name": "pfinal",
   "version": "1.0.0",
-  "description": "proyecto_de_programacion_web_2",
+  "description": "proyecto final de programacion web 2",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,15 +9,16 @@
   "keywords": [
     "proyecto",
     "node",
-    "express",
-    "mysql"
+    "mysql",
+    "ejs"
   ],
-  "author": "Rojas_Perez_Cesar_Emiliano",
+  "author": "Rojas Perez Cesar Emiliano",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.3",
     "ejs": "^3.1.10",
     "express": "^4.21.1",
+    "moment": "^2.30.1",
     "mysql2": "^3.11.4"
   }
 }

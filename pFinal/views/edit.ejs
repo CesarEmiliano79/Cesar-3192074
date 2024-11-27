@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller de Llaveros - Editar</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    
+    <div class="container">
+
+        <h2>Editar Usuario</h2>
+        <form action="/edit/<%= datos.id %>" method="POST">
+            <label for="idPedido">ID Pedido</label>
+            <input type="text" id="idPedido" name="idPedido" value="<%= datos.idPedido %>" required>
+
+            <label for="codigo">Código:</label>
+            <input type="text" id="codigo" name="codigo" value="<%= datos.codigo %>" required>
+        
+            <label for="modelo">Modelo:</label>
+            <input type="text" id="modelo" name="modelo" value="<%= datos.modelo %>" required>
+        
+            <label for="precioT">Precio Total:</label>
+            <input type="number" step="0.01" id="precioT" name="precioT" value="<%= datos.precioT %>" required>
+        
+            <label for="completo">¿Completado?</label>
+            <select id="completo" name="completo" required>
+                <option value="0">No</option>
+                <option value="1">Sí</option>
+            </select>
+        
+            <label for="cliente">Cliente:</label>
+            <input type="text" id="cliente" name="cliente" value="<%= datos.cliente %>" required>
+        
+            <label for="fechaEntrega">Fecha Entrega:</label>
+            <input type="date" id="fechaEntrega" name="fechaEntrega" value="<%= datos.fechaEntrega %>">
+            
+            <button type="submit">Actualizar</button>
+        </form>           
+    </div>
+</body>
+</html>
