@@ -1,12 +1,13 @@
 const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
-
+const path = require('path');
 const app = express();
 
 //configuracion para el uso peticiones post
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(express.static(path.join(__dirname, 'public')));
 
 //platillas que sean dinamicas
 app.set('view engine', 'ejs');
@@ -57,6 +58,11 @@ app.get('/', (req, res) => {
 });
 
 
+
+app.get('/registro',(req,res)=>{
+    res.render('add');
+});
+
 //agregar usuarios
 
 app.post('/add', (req, res) => {
@@ -71,6 +77,8 @@ app.post('/add', (req, res) => {
         }
     });
 });
+
+
 
 app.get('/find/:id', (req, res) => {
     const { id } = req.params;

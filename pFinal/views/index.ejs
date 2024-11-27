@@ -32,7 +32,7 @@
                 <td>$<%= datos.precioT %></td>
                 <td><%= datos.completo ? 'Sí' : 'No' %></td>
                 <td><%= datos.cliente %></td>
-                <td><%= new Date(datos.fechaEntrega).toLocaleDateString('es-ES') %></td>
+                <td><%= datos.fechaEntrega %></td>
                 <td>
                     <a href="/find/<%= datos.id %>">Editar</a> |
                     <a href="/delete/<%= datos.id %>" onclick="return confirm('¿Estás seguro de eliminar este pedido?')">Eliminar</a>
@@ -43,32 +43,7 @@
     </table>
 
     <h2>Agregar Nuevo Pedido</h2>
-    <form action="/add" method="POST">
-        <label for="idPedido">ID Pedido</label>
-        <input type="text" id="idPedido" name="idPedido" required>
-
-        <label for="codigo">Código:</label>
-        <input type="text" id="codigo" name="codigo" required>
-        
-        <label for="modelo">Modelo:</label>
-        <input type="text" id="modelo" name="modelo" required>
-        
-        <label for="precioT">Precio Total:</label>
-        <input type="number" step="0.01" id="precioT" name="precioT" required>
-        
-        <label for="completo">¿Completado?</label>
-        <select id="completo" name="completo" required>
-            <option value="0">No</option>
-            <option value="1">Sí</option>
-        </select>
-        
-        <label for="cliente">Cliente:</label>
-        <input type="text" id="cliente" name="cliente" required>
-        
-        <label for="fechaEntrega">Fecha Entrega:</label>
-        <input type="date" id="fechaEntrega" name="fechaEntrega">
-        
-        <button type="submit">Agregar Pedido</button>
+    <a href="/registro">Agregar Pedido</a>
     </form>
 </body>
 </html>
